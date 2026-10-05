@@ -4,7 +4,9 @@ import argparse
 from typing import Optional
 import requests
 
-# Ensure UTF-8 output on Windows consoles
+
+
+
 if hasattr(sys.stdout, "reconfigure"):
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -247,13 +249,12 @@ def cmd_exec_file(args):
         print(f"Error reading file '{args.filepath}': {e}")
         sys.exit(1)
 
-    # If it's a powershell script or requested powershell encoding
     if args.filepath.endswith(".ps1") or args.powershell:
         import base64
         encoded = base64.b64encode(content.encode("utf-16le")).decode("ascii")
         final_cmd = f"powershell.exe -NoProfile -NonInteractive -EncodedCommand {encoded}"
     else:
-        # Standard multi-line / script string
+       
         final_cmd = content
 
     args.command = final_cmd
@@ -268,14 +269,14 @@ def main():
     # agents
     p_agents = subparsers.add_parser("agents", help="List all registered agents")
 
-    # exec
+
     p_exec = subparsers.add_parser("exec", help="Queue command for an agent")
     p_exec.add_argument("agent_id", help="Target agent ID (or 'all')")
     p_exec.add_argument("command", help="Command string to execute")
     p_exec.add_argument("-w", "--wait", action="store_true", help="Wait for task to complete and print output")
     p_exec.add_argument("-t", "--timeout", type=int, default=30, help="Wait timeout in seconds")
 
-    # exec-file / script
+ 
     p_file = subparsers.add_parser("exec-file", help="Execute a script file (ps1, bat, sh) on an agent")
     p_file.add_argument("agent_id", help="Target agent ID (or 'all')")
     p_file.add_argument("filepath", help="Path to script file on local machine")

@@ -5,8 +5,6 @@ import shlex
 import os
 from typing import Optional
 import requests
-
-# Reconfigure stdout for utf-8 on Windows
 if hasattr(sys.stdout, "reconfigure"):
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -120,7 +118,15 @@ class C2InteractiveConsole(cmd.Cmd):
 
         print(f"\n[!] Timeout waiting for task {task_id}. It will execute on the next check-in.")
 
-    # ----------------- Commands -----------------
+
+
+
+
+
+
+
+
+    
 
     def do_agents(self, arg):
         """List all registered agents and their current status.\nUsage: agents"""
@@ -353,6 +359,14 @@ class C2InteractiveConsole(cmd.Cmd):
             return
         task_id = res["tasks"][0]["id"]
         self._wait_and_print_task(task_id)
+
+
+
+
+
+
+
+
 
 
 def main():

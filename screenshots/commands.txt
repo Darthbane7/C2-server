@@ -1,1 +1,6 @@
 
+python3 cli.py agents
+
+nohup python3 run_server.py > server.log 2>&1 &
+
+sudo fuser -k 8000/tcp

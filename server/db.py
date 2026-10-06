@@ -206,7 +206,8 @@ def record_task_result(
     error_message: Optional[str] = None
 ) -> Optional[Dict[str, Any]]:
     now = _utc_now_str()
-    # Normalize status to 'completed' or 'failed'
+
+    
     final_status = "completed" if status in ("completed", "success") else "failed"
 
     with get_db_connection() as conn:

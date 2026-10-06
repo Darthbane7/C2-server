@@ -150,3 +150,12 @@ curl -X POST http://localhost:8000/api/rawexec/<AGENT_ID> -d "ipconfig /all"
 python3 console.py
 ```
 ## 📂 OUTPUT
+
+![Project Screenshot](screenshots/1.png)
+![Project Screenshot](screenshots/2.png)
+![Project Screenshot](screenshots/3.png)
+![Project Screenshot](screenshots/4.png)
+![Project Screenshot](screenshots/aws.png)
+![Project Screenshot](screenshots/aws2.png)
+![Project Screenshot](screenshots/aws3.png)
+

@@ -149,3 +149,4 @@ curl -X POST http://localhost:8000/api/rawexec/<AGENT_ID> -d "ipconfig /all"
 # Interactive Terminal Console
 python3 console.py
 ```
+## 📂 OUTPUT

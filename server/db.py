@@ -11,7 +11,7 @@ from server.config import DB_PATH, AGENT_OFFLINE_THRESHOLD_SECONDS, DEFAULT_CHEC
 def get_db_connection() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH, timeout=10.0)
     conn.row_factory = sqlite3.Row
-    # Enable WAL mode for high concurrency between web server and background check-ins
+    # write ahead logging for web server
     conn.execute("PRAGMA journal_mode = WAL;")
     conn.execute("PRAGMA busy_timeout = 5000;")
     conn.execute("PRAGMA foreign_keys = ON;")
